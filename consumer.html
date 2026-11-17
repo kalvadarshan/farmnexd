@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FarmLink | Fresh Produce Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>FarmLink</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="consumer.html">Consumer</a>
+    <a href="farmer.html">Farmer</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h2>Fresh produce, straight from the village</h2>
+    <p>We collect from farmers, store it cold and deliver in bulk.</p>
+    <a class="btn" href="consumer.html">Shop Fresh Produce</a>
+    <a class="btn" href="farmer.html">I am a Farmer</a>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="cards">
+      <div class="card"><h3>1. Village Auction</h3><p>Farmers sell at a fixed village mandi.</p></div>
+      <div class="card"><h3>2. Bulk Transport</h3><p>Many small loads go in one truck.</p></div>
+      <div class="card"><h3>3. Cold Storage</h3><p>Produce stays fresh in the city.</p></div>
+      <div class="card"><h3>4. One-Day Delivery</h3><p>Daily delivery to bulk buyers.</p></div>
+    </div>
+  </section>
+
+  <section>
+  <h2>Fresh Produce</h2>
+  <input type="text" id="search" placeholder="Search tomato, mango...">
+  <p>Cart items: <span id="cartCount">0</span></p>
+
+  <div class="cards" id="products">
+    <div class="card product"><h3>Tomato</h3><p>₹30 / kg</p><button onclick="addToCart()">Add to cart</button></div>
+    <div class="card product"><h3>Mango</h3><p>₹90 / kg</p><button onclick="addToCart()">Add to cart</button></div>
+    <div class="card product"><h3>Potato</h3><p>₹25 / kg</p><button onclick="addToCart()">Add to cart</button></div>
+  </div>
+</section>
+
+<script>
+  let count = 0;
+  function addToCart() {
+    count = count + 1;
+    document.getElementById("cartCount").textContent = count;
+  }
+
+  document.getElementById("search").addEventListener("input", function () {
+    const text = this.value.toLowerCase();
+    document.querySelectorAll(".product").forEach(function (item) {
+      item.style.display = item.textContent.toLowerCase().includes(text) ? "block" : "none";
+    });
+  });
+</script>
+</main>
+
+<footer><p>&copy; 2026 FarmLink</p></footer>
+</body>
+</html>
